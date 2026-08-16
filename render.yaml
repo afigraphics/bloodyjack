@@ -10,4 +10,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: ADMIN_PASSWORD
-        generateValue: true
+        value: afi31
