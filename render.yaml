@@ -2,7 +2,7 @@ services:
   - type: web
     name: bloodyjack
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm ci && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
@@ -11,9 +11,3 @@ services:
         value: production
       - key: ADMIN_PASSWORD
         generateValue: true
-      - key: DB_PATH
-        value: /opt/render/project/src/storage/bloodyjack.db
-    disk:
-      name: bloodyjack-data
-      mountPath: /opt/render/project/src/storage
-      sizeGB: 1
