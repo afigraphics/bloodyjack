@@ -115,6 +115,7 @@ app.post('/api/auth/register', async (req, res) => {
     setSession(res, user.id); res.status(201).json({ user: publicUser(user) });
   } catch { res.status(409).json({ error: 'Bu e-posta zaten kayıtlı.' }); }
 });
+app.post('/api/auth/guest', async (req,res)=>{const username=String(req.body.username||'').trim();if(username.length<2||username.length>18)return res.status(400).json({error:'Takma ad 2–18 karakter olmalı.'});const email=`guest-${crypto.randomUUID()}@bloodyjack.local`;const passwordHash=await hashPassword(crypto.randomBytes(24).toString('hex'));const result=db.prepare('INSERT INTO users (username,email,password_hash) VALUES (?,?,?)').run(username,email,passwordHash);const user=db.prepare('SELECT id,username,email,role FROM users WHERE id=?').get(result.lastInsertRowid);ensureWallet(user.id);setSession(res,user.id);res.status(201).json({user:publicUser(user)});});
 app.post('/api/auth/login', async (req, res) => {
   const email = String(req.body.email || '').trim().toLowerCase();
   const user = db.prepare('SELECT * FROM users WHERE email=?').get(email);
