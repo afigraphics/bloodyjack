@@ -129,7 +129,7 @@ app.post('/api/admin/users/:id/adjust', (req,res) => { const admin=currentUser(r
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(root, 'dist')));
-  app.get('*', (_, res) => res.sendFile(path.join(root, 'dist', 'index.html')));
+  app.get(/.*/, (_, res) => res.sendFile(path.join(root, 'dist', 'index.html')));
 } else {
   const { createServer } = await import('vite');
   const vite = await createServer({ root, server: { middlewareMode: true }, appType: 'spa' });
