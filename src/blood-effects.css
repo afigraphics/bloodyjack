@@ -1,0 +1,20 @@
+.game-area{isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 8%,#4b0714 0,transparent 46%)}
+.game-area:before{content:"";position:absolute;z-index:0;left:0;right:0;top:-42px;height:260px;pointer-events:none;opacity:.8;background:
+radial-gradient(ellipse 10px 18px at 8% 91%,#cf1737 0 42%,transparent 48%),
+linear-gradient(90deg,transparent 7.6%,#9d0b25 7.9% 8.35%,transparent 8.65%),
+radial-gradient(ellipse 8px 15px at 21% 72%,#8d0a20 0 42%,transparent 49%),
+linear-gradient(90deg,transparent 20.7%,#680617 21% 21.35%,transparent 21.65%),
+radial-gradient(ellipse 11px 20px at 38% 96%,#bc102e 0 42%,transparent 49%),
+linear-gradient(90deg,transparent 37.55%,#8f0921 37.9% 38.38%,transparent 38.72%),
+radial-gradient(ellipse 8px 16px at 61% 78%,#a50b27 0 42%,transparent 49%),
+linear-gradient(90deg,transparent 60.7%,#760719 61% 61.37%,transparent 61.7%),
+radial-gradient(ellipse 12px 21px at 80% 92%,#c11231 0 42%,transparent 49%),
+linear-gradient(90deg,transparent 79.5%,#8b0920 79.85% 80.36%,transparent 80.7%),
+linear-gradient(180deg,#260107 0,#6d0718 18%,#3c030d 26%,transparent 28%);
+filter:drop-shadow(0 7px 7px #e21b3c48);animation:bloodDrip 7s ease-in-out infinite alternate}
+.game-area:after{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 10%,#dc16352e,transparent 52%);animation:bloodBreath 5s ease-in-out infinite}
+.game-area>.room-row,.game-area>.table-wrap,.game-area>.controls{position:relative;z-index:2}
+.bloody-canvas{inset:1% 1% 0!important;border-radius:47% 47% 43% 43%/38% 38% 50% 50%!important;filter:none!important;overflow:hidden!important}
+@keyframes bloodDrip{0%{transform:translateY(-10px);opacity:.62}100%{transform:translateY(20px);opacity:.9}}
+@keyframes bloodBreath{50%{opacity:.45}}
+@media(prefers-reduced-motion:reduce){.game-area:before,.game-area:after{animation:none}}

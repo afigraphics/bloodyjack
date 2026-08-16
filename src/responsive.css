@@ -1,0 +1,11 @@
+@media (max-height: 800px) and (min-width: 1001px) {
+  .game-area { padding-top: 17px; padding-bottom: 112px; }
+  .table-wrap { height: 445px; margin-top: 5px; }
+  .table-rail { width: 800px; height: 430px; }
+  .dealer-zone { top: 24px; }
+  .seat-pos { top: 57%; }
+  .player-zone { bottom: 20%; }
+  .empty-seat { bottom: 8%; }
+  .status { bottom: 99px; }
+  .controls { bottom: 9px; height: 76px; }
+}
